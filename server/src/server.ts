@@ -4,7 +4,6 @@ import cors from 'cors'
 import convertHourStringToMinutes from './utils/convert-hour-string-to-minutes';
 import { converMinutesToHourString } from './utils/convert-minutes-to-hour-string';
 
-
 const prisma = new PrismaClient({
     log: ['query']
 });
@@ -29,7 +28,7 @@ app.get('/games', async (request, response) => {
 })
 app.post('/games/:id/ads', async (request, response) => {
 
-    const gameId = request.params.id;
+    const gameId: any = request.params.id;
     const body: any = request.body;
 
     const ad = await prisma.ad.create({
